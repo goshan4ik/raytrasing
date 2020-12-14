@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RayTracing
@@ -95,7 +90,6 @@ namespace RayTracing
                     (pictureBox1.Image as Bitmap).SetPixel(i, j, color_pixels[i, j]);
                 }
                 pictureBox1.Invalidate();
-                progressBar2.PerformStep();
             }
 
         }
@@ -113,9 +107,8 @@ namespace RayTracing
                     Point clr = RayTrace(r, 10, 1);
                     if (clr.x > 1.0f || clr.y > 1.0f || clr.z > 1.0f)
                         clr = Point.norm(clr);
-                    color_pixels[i, j] = Color.FromArgb((int)(255 * clr.x), (int)(255 * clr.y), (int)(255 * clr.z));
+                    color_pixels[i, j] = Color.FromArgb((int) (255 * clr.x), (int) (255 * clr.y), (int) (255 * clr.z));
                 }
-                progressBar1.PerformStep();
             }
             
         }
